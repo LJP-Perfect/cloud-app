@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+        </plugin>
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!--去除自动生成的注释-->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/security_jwt" userId="root" password="1234"/>
+        <!--自动生成模型的位置-->
+        <javaModelGenerator targetPackage="me.freelee.serviceprovider.model" targetProject="src/main/java">
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成mapper映射文件的位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+        <!--生成DAO的位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="me.freelee.serviceprovider.dao" targetProject="src/main/java"/>
+        <!--表名和生成实体类名，关闭生成Example相关DAO和mapper-->
+        <table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"></table>
+        <table tableName="resource" domainObjectName="Resource" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"></table>
+        <table tableName="role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"></table>
+        <table tableName="role_resource" domainObjectName="RoleResource" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"></table>
+        <table tableName="user_role" domainObjectName="UserRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"></table>
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,15 @@
+spring:
+  redis:
+    host: localhost
+    database: 0
+    port: 6379
+    timeout: 100
+  application:
+    name: auth
+server:
+  port: 8200
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
